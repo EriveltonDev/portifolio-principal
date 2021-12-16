@@ -19,7 +19,7 @@ a {
 
 body, html {
     font-family: 'Bebas Neue', cursive;
-    height: 100%;
+    height: 100vh;
     font-size: 20px;
     scroll-behavior: smooth;
 }
@@ -61,6 +61,10 @@ header {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+}
+
+.image img {
+    max-width: 100%;
 }
 
 .titulo h1 {
@@ -122,10 +126,11 @@ header {
     border: 10px solid black;
     border-radius: 50%;
     margin-bottom: 50px;
+    box-shadow: 1px 1px 1px black;
 }
 
 .perfil {
-    width: 300px;
+    max-width: 300px;
 }
 
 .item {
@@ -135,21 +140,9 @@ header {
     padding: 10px 30px;
     margin: 20px;
     border-radius: 10px;
-    min-width: 200px;
+    min-width: 150px;
     text-align: center;
 }
-
-.item2 {
-    font-size: 16px;
-    width: 300px;
-    height: 300px;
-    background-color: black;
-    color: white;
-    padding:30px;
-    margin: 20px;
-    border-radius: 10px;
-}
-
 .item h1 {
     font-size: 20px;
 }
@@ -200,7 +193,7 @@ footer {
         max-width: 400px;
     }
     .item img {
-        width: 300px;
+        max-width: 100%;
     }
     #btn-mobile {
         display: block;
@@ -226,7 +219,6 @@ footer {
         display: block;
         visibility: hidden;
         overflow-y: hidden;
-        transition: 0.3s;
         width: 90%;
         border-radius: 10px;
         margin: 0 auto;
