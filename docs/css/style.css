@@ -1,3 +1,5 @@
+@import url(mobile.css);
+
 * {
     margin: 0;
     padding: 0;
@@ -174,53 +176,4 @@ footer {
 
 .descricao {
     text-align: center;
-}
-
-
-@media (max-width: 700px) {
-    html, body {
-        height: auto;
-    }
-    #nave.ativo ul {
-        display: block;
-        width: 90%;
-        border-radius: 10px;
-        margin: 0 auto;
-        visibility: visible;
-        overflow-y: auto;
-    }
-    header img {
-        max-width: 400px;
-    }
-    .item img {
-        max-width: 100%;
-    }
-    #btn-mobile {
-        display: block;
-    }
-    nav ul {
-        display: none;
-    }
-    .secao1, .secao2, .secao3 {
-        padding: 20px;
-    }
-    #projetos h4 {
-        font-size: 39px;
-    }
-    #nave ul {
-        position: absolute;
-        width: 100%;
-        top: 60px;
-        right: 0;
-        left: 0;
-        background-color: black;
-        display: none;
-        z-index: 1000;
-        display: block;
-        visibility: hidden;
-        overflow-y: hidden;
-        width: 90%;
-        border-radius: 10px;
-        margin: 0 auto;
-    }
 }
