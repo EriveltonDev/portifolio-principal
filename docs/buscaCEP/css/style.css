@@ -22,7 +22,7 @@ div {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 200px;
+    height: 250px;
 }
 
 .input {
@@ -71,6 +71,30 @@ section input {
     width: 100%;
     text-align: center;
     margin: 10px 0 10px 0;
+}
+
+#erro1, #erro2 {
+    display: none;
+}
+
+#buscador {
+    border: none;
+}
+
+#buscador.ativo {
+    border: 2px solid red;
+}
+
+#erro1.ativo {
+    color: red;
+    padding: 10px;
+    display: block;
+}
+
+#erro2.ativo {
+    color: red;
+    padding: 10px;
+    display: block;
 }
 
 @media (max-width: 400px ) {

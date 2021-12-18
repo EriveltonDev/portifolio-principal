@@ -7,6 +7,9 @@ export default class buscaCEP {
         this.bairro = document.querySelector(bairro);
         this.localidade = document.querySelector(localidade);
         this.uf = document.querySelector(uf);
+        this.erro1 = document.querySelector('#erro1');
+        this.erro2 = document.querySelector('#erro2');
+
     }
 
     atualizarCEP() {
@@ -27,8 +30,13 @@ export default class buscaCEP {
         this.buscador.addEventListener('keyup', this.atualizarCEP);
         this.botao.addEventListener('click', () => {
             if (this.buscador.value.length === 9) {
+                this.buscador.classList.remove('ativo');
+                this.erro2.classList.remove('ativo');
+                this.erro1.classList.remove('ativo');
             this.puxarCEP(this.buscador.value)
             } else {
+                this.buscador.classList.add('ativo');
+                this.erro2.classList.add('ativo');
                 window.alert('CEP inválido');
                 this.clear();
             }
@@ -48,6 +56,8 @@ export default class buscaCEP {
                 this.uf.value = body.uf;
             } else {
                 window.alert('Endereço não encontrado ou não existe');
+                this.erro1.classList.add('ativo');
+                this.buscador.classList.add('ativo');
                 this.clear();
             }
         });
