@@ -18,7 +18,12 @@ function puxarTexto(event) {
 function calcular() {
     const resultado = display.innerHTML;
     if (resultado) {
-        display.innerHTML = eval(resultado);
+        const resultadoParcial = eval(resultado);
+        if (resultadoParcial%1 === 0) {
+            display.innerHTML = resultadoParcial;
+        } else {
+            display.innerHTML = resultadoParcial.toFixed(2);
+        }
     } else {
         window.alert('Não há nada para calcular!')
     }

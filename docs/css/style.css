@@ -115,7 +115,6 @@ header {
     height: auto;
 }
 .caixa {
-    padding: 10px;
     height: 100%;
     border-bottom: 2px solid black;
 }
@@ -145,13 +144,40 @@ header {
     background-color: black;
     color: white;
     padding: 10px 30px;
-    margin: 20px;
+    margin: 10px;
     border-radius: 10px;
     min-width: 150px;
     text-align: center;
 }
+
+.itemProjetos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 170px;
+    max-width: 170px;
+    font-size: 100px;
+    background-color: black;
+    color: white;
+    padding: 10px 30px;
+    margin: 10px;
+    border-radius: 10px;
+    min-width: 150px;
+    text-align: center;
+}
+
 .item h1 {
     font-size: 20px;
+}
+
+.itemProjetos h1 {
+    font-size: 20px;
+}
+
+.containerProjetos {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 60px;
 }
 
 footer {
@@ -189,7 +215,7 @@ footer {
     }
     #nave.ativo ul {
         display: block;
-        width: 90%;
+        max-width: 90%;
         border-radius: 10px;
         margin: 0 auto;
         visibility: visible;
@@ -228,5 +254,16 @@ footer {
         width: 90%;
         border-radius: 10px;
         margin: 0 auto;
+    }
+    #sobre p {
+        padding-bottom: 40px;
+    }
+
+    .itemProjetos {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 170px;
+        max-width: 170px;
     }
 }
