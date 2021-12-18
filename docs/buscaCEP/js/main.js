@@ -6,16 +6,23 @@ const bairro = document.querySelector('#bairro');
 const localidade = document.querySelector('#localidade');
 const UF = document.querySelector('#uf');
 
+buscador.addEventListener('keyup', atualizarCEP);
+
+function atualizarCEP() {
+    const atualizado = buscador.value.replace(/(\d{5})(\d{3})/g, '$1-$2');
+    buscador.value = atualizado;
+}
+
 botao.addEventListener('click', () => {
-    if (buscador.value.length === 8) {
+    if (buscador.value.length === 9) {
     puxarCEP(buscador.value)
     } else {
         window.alert('CEP inválido');
-        limpar();
+        clear();
     }
 });
 
-function limpar() {
+function clear() {
     buscador.value = '';
     logradouro.value = '';
     complemento.value = '';
@@ -37,7 +44,7 @@ function puxarCEP(numCEP) {
             UF.value = body.uf;
         } else {
             window.alert('Endereço não encontrado ou não existe');
-            limpar();
+            clear();
         }
     })
 }
