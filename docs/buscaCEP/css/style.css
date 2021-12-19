@@ -33,6 +33,7 @@ div {
 
 label {
     cursor: pointer;
+    display: none;
 }
 
 div input {
@@ -71,6 +72,7 @@ section input {
     width: 100%;
     text-align: center;
     margin: 10px 0 10px 0;
+    display: none;
 }
 
 #erro1, #erro2 {

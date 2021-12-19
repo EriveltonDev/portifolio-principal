@@ -9,6 +9,11 @@ export default class buscaCEP {
         this.uf = document.querySelector(uf);
         this.erro1 = document.querySelector('#erro1');
         this.erro2 = document.querySelector('#erro2');
+        this.log = document.querySelector('#log');
+        this.com = document.querySelector('#com');
+        this.bai = document.querySelector('#bai');
+        this.loc = document.querySelector('#loc');
+        this.fu = document.querySelector('#fu');
 
     }
 
@@ -26,8 +31,14 @@ export default class buscaCEP {
         this.uf.value = '';
     }
 
+
     eventos() {
         this.buscador.addEventListener('keyup', this.atualizarCEP);
+        this.buscador.addEventListener('keyup', (event) => {
+            if (event.keyCode == 13) {
+                this.puxarCEP(this.buscador.value);
+            }
+        });
         this.botao.addEventListener('click', () => {
             if (this.buscador.value.length === 9) {
                 this.buscador.classList.remove('ativo');
@@ -43,6 +54,52 @@ export default class buscaCEP {
         });
     }
 
+    limpar(body) {
+        if(body.logradouro === '') {
+            this.logradouro.setAttribute('style', 'display:none;')
+            this.log.setAttribute('style', 'display:none;')
+        }
+        if(body.complemento === '') {
+            this.complemento.setAttribute('style', 'display:none;')
+            this.com.setAttribute('style', 'display:none;')
+        }
+        if(body.bairro === '') {
+            this.bairro.setAttribute('style', 'display:none;')
+            this.bai.setAttribute('style', 'display:none;')
+        }
+        if(body.localidade === '') {
+            this.localidade.setAttribute('style', 'display:none;')
+            this.loc.setAttribute('style', 'display:none;')
+        }
+        if(body.uf === '') {
+            this.uf.setAttribute('style', 'display:none;')
+            this.fu.setAttribute('style', 'display:none;')
+        }
+    }
+
+    exibir(body) {
+        if(body.logradouro != '') {
+            this.logradouro.setAttribute('style', 'display:block;')
+            this.log.setAttribute('style', 'display:block;')
+        }
+        if(body.complemento != '') {
+            this.complemento.setAttribute('style', 'display:block;')
+            this.com.setAttribute('style', 'display:block;')
+        }
+        if(body.bairro != '') {
+            this.bairro.setAttribute('style', 'display:block;')
+            this.bai.setAttribute('style', 'display:block;')
+        }
+        if(body.localidade != '') {
+            this.localidade.setAttribute('style', 'display:block;')
+            this.loc.setAttribute('style', 'display:block;')
+        }
+        if(body.uf != '') {
+            this.uf.setAttribute('style', 'display:block;')
+            this.fu.setAttribute('style', 'display:block;')
+        }
+    }
+
     puxarCEP(numCEP) {
         const cep = fetch('https://viacep.com.br/ws/' + numCEP + '/json/');
     
@@ -54,6 +111,8 @@ export default class buscaCEP {
                 this.bairro.value = body.bairro;
                 this.localidade.value = body.localidade;
                 this.uf.value = body.uf;
+                this.limpar(body)
+                this.exibir(body);
             } else {
                 window.alert('Endereço não encontrado ou não existe');
                 this.erro1.classList.add('ativo');
@@ -65,6 +124,8 @@ export default class buscaCEP {
 
     bind() {
         this.atualizarCEP = this.atualizarCEP.bind(this);
+        this.exibir = this.exibir.bind(this);
+        this.limpar = this.limpar.bind(this);
     }
 
     init() {
