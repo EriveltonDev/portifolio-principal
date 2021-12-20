@@ -46,7 +46,7 @@ export default class calculadora {
     }
 
     backspace() {
-        const conteudo = display.innerHTML;
+        const conteudo = this.display.innerHTML;
         this.display.innerHTML = conteudo.substring(0, conteudo.length -1);
         
     }
