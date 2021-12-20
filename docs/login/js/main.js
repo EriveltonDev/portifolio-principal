@@ -28,14 +28,19 @@ function guardarDados() {
         }
         
     } else {
-        formularios.push({
-            usuario:usuario.value,
-            senha:senha.value
-        })
-        localStorage.setItem('formularios', JSON.stringify(formularios));
-        msgError.setAttribute('style', 'display:none;');
-        msgSucess.setAttribute('style', 'visibility: visible');
-        redirecionamento()
+        if (usuario.value != '' && senha.value != '') {
+            formularios.push({
+                usuario:usuario.value,
+                senha:senha.value
+            })
+            localStorage.setItem('formularios', JSON.stringify(formularios));
+            msgError.setAttribute('style', 'visibility:hidden;');
+            msgSucess.setAttribute('style', 'visibility: visible');
+            redirecionamento()
+        } else {
+            msgError.setAttribute('style', 'display:block');
+            msgSucess.setAttribute('style', 'display:none;')
+        }
     }
 }
 
