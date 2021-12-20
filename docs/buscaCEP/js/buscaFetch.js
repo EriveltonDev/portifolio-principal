@@ -36,19 +36,30 @@ export default class buscaCEP {
         this.buscador.addEventListener('keyup', this.atualizarCEP);
         this.buscador.addEventListener('keyup', (event) => {
             if (event.keyCode == 13) {
-                this.puxarCEP(this.buscador.value);
+                    this.puxarCEP(this.buscador.value);
+                if (this.buscador.value.length === 9) {
+                    this.buscador.classList.remove('ativo');
+                    this.erro2.classList.remove('ativo');
+                    this.erro1.classList.remove('ativo');
+                    this.puxarCEP(this.buscador.value)
+                } else {
+                    this.buscador.classList.add('ativo');
+                    this.erro2.classList.add('ativo');
+                    this.clear();
+                }
             }
         });
+
         this.botao.addEventListener('click', () => {
             if (this.buscador.value.length === 9) {
                 this.buscador.classList.remove('ativo');
                 this.erro2.classList.remove('ativo');
                 this.erro1.classList.remove('ativo');
-            this.puxarCEP(this.buscador.value)
+                this.puxarCEP(this.buscador.value)
             } else {
                 this.buscador.classList.add('ativo');
                 this.erro2.classList.add('ativo');
-                window.alert('CEP inválido');
+                this.puxarCEP();
                 this.clear();
             }
         });
@@ -114,9 +125,9 @@ export default class buscaCEP {
                 this.limpar(body)
                 this.exibir(body);
             } else {
-                window.alert('Endereço não encontrado ou não existe');
                 this.erro1.classList.add('ativo');
                 this.buscador.classList.add('ativo');
+                this.limpar(body)
                 this.clear();
             }
         });
