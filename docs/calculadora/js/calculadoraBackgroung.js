@@ -13,7 +13,6 @@ export default class calculadora {
         } else if (event.target.innerHTML === '=') {
             this.calcular();
         } else {
-            console.log(event.target)
             this.display.innerHTML += event.target.innerHTML;
         }
     }
